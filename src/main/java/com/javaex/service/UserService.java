@@ -15,12 +15,15 @@ public class UserService {
 	
 	//회원가입
 	public int join(UserVo userVo) {
+		System.out.println("UserService>join--> "+ userVo);
 		return userDao.join(userVo);
 	}
 	
 	
 	//로그인
 	public UserVo login(UserVo userVo) {
+		System.out.println("UserService-->"+userVo);
+		
 		return userDao.login(userVo);
 	}
 }

@@ -10,6 +10,19 @@
 
 	</resultMap>
 	
+	<select id="title" parameterType="BlogVo">
+		<![CDATA[
+			
+			select  b.id id, 
+			        b.blogTitle blogTitle, 
+			        b.logoFile logoFile, 
+			        u.userName userName 
+			from blog b, users u 
+			where b.id = u.id 
+			and b.id = #{id} 
+			
+		]]>
+	</select>
 	
 	
 	

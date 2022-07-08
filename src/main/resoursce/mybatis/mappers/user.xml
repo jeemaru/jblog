@@ -15,18 +15,18 @@
 	<insert id="join" parameterType="UserVo">
 		<![CDATA[
 			insert into users 
-			values(seq_users_no.nextval, #{id}, #{password}, #{userName},sysdate)
+			values(seq_users_no.nextval, #{id}, #{userName}, #{password}, sysdate)
 		]]>
 	</insert>
 	
 	
 	<select id="login" parameterType="UserVo" resultMap="resultMapUserVo">
 		<![CDATA[
-			select  id,
-					userName,
-					password
-			from users
-			where id = #{id}
+			select 	userNo, 
+					id, 
+					userName 
+			from users 
+			where id = #{id} 
 			and password = #{password}
 		]]>
 	</select>

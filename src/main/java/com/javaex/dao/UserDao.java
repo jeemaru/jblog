@@ -14,12 +14,15 @@ public class UserDao {
 	
 	//회원가입
 	public int join(UserVo userVo) {
+		System.out.println("UserDao>join--> "+ userVo);
 		return sqlSession.insert("user.join", userVo);
 	}
 	
 	
 	//로그인
 	public UserVo login(UserVo userVo) {
+		System.out.println("userDao-->"+userVo);
+		
 		return sqlSession.selectOne("user.login", userVo);
 	}
 }

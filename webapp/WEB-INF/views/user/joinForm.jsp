@@ -83,41 +83,7 @@
 }); */
 
 
-$("#joinForm").on("submit", function(){
-	
-	var id = $("#txtId").val();
-	var password = $("#txtPassword").val();
-	var UserName= $("#txtUserName").val();
-	var idcheck = $().val("#btnIdCheck").val;
-	
-	if(id == "" || id == null){
-		alert("아이디를 입력해주세요");
-		return false;
-	}
-	
-	if(password == "" || password == null){
-		alert("비밀번호를 입력해주세요");
-		return false;
-	}
-	
-	if(UserName == "" || UserName == null){
-		alert("이름을 입력해주세요");
-		return false;
-	}
-	
-	if(idcheck == "" || idcheck == null){
-		alert("이미 사용중인 아이디입니다.");
-		return false;
-	}
-	
-	//약관동의
- 	var agree = $("#chkAgree").is(":checked");
-		
-	if(agree == false){
-		alert("약관에 동의해주세요")
-		return false;
-	}
-});
+
 
 </script>
 

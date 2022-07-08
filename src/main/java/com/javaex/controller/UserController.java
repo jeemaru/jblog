@@ -19,14 +19,14 @@ public class UserController {
 	
 	@RequestMapping(value="/user/loginForm",  method= {RequestMethod.GET, RequestMethod.POST})
 	public String loginForm() {
-		System.out.println("MainController>loginForm");
+		System.out.println("UserController>loginForm");
 		
 		return "user/loginForm";
 	}
 
 	@RequestMapping(value="/user/joinForm",  method= {RequestMethod.GET, RequestMethod.POST})
 	public String joinForm() {
-		System.out.println("MainController>joinForm");
+		System.out.println("UserController>joinForm");
 		
 		return "user/joinForm";
 	}
@@ -36,34 +36,41 @@ public class UserController {
 	public String join(@ModelAttribute UserVo userVo) {
 		
 		System.out.println("UserController>join");
+		System.out.println("UserController>join-->  "+userVo);
 		
 		userService.join(userVo);
 	
 		return "user/joinSuccess";
 	}
 	
-	@RequestMapping(value="/login", method= {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="user/login", method= {RequestMethod.GET, RequestMethod.POST})
 	public String login(@ModelAttribute UserVo userVo, HttpSession httpSession) {
 		
 		System.out.println("UserController>login");
+		System.out.println(userVo);
 		
 		UserVo authUser = userService.login(userVo);
 		
+		System.out.println("UserController>login-->   "+authUser);
+		
 		if (authUser != null) {
 			httpSession.setAttribute("authUser", authUser);
-			return "redirect:main";
+			return "redirect:/main";
 		} else {
 			return "redirect:loginForm?result=fail";
 		}
 		
+		
 	}
 	
-	@RequestMapping(value="/logout", method= {RequestMethod.GET, RequestMethod.POST})	
+	@RequestMapping(value="user/logout", method= {RequestMethod.GET, RequestMethod.POST})	
 	public String logout(HttpSession httpSession) {
 		
 		httpSession.removeAttribute("authUser");
 		
 		return "main/index";
 	}
+	
+	
 	
 }

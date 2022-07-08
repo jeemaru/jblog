@@ -21,6 +21,12 @@ public class UserVo {
 		this.password = password;
 		this.joinDate = joinDate;
 	}
+	public UserVo(String id, String userName, String password) {
+		super();
+		this.id = id;
+		this.userName = userName;
+		this.password = password;
+	}
 	
 	
 	
