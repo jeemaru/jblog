@@ -7,10 +7,11 @@
 		<result column="id" property="id" />
 		<result column="blogTitle" property="blogTitle" />
 		<result column="logoFile" property="logoFile" />
+		<result column="userName" property="userName" />
 
 	</resultMap>
 	
-	<select id="title" parameterType="BlogVo">
+	<select id="title" parameterType="String" resultMap="resultMapBlogVo">
 		<![CDATA[
 			
 			select  b.id id, 
@@ -19,9 +20,21 @@
 			        u.userName userName 
 			from blog b, users u 
 			where b.id = u.id 
-			and b.id = #{id} 
+			and b.id = #{id} 	
 			
 		]]>
+	</select>
+	
+	<select id="blogIdCheck" parameterType="String" resultMap="resultMapBlogVo">
+		<![CDATA[
+		
+			select b.id id
+			from blog b, users u 
+			where b.id = u.id 
+			and b.id = #{id}
+				
+		]]>
+		
 	</select>
 	
 	

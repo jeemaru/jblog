@@ -12,8 +12,15 @@ public class BlogDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public int title(BlogVo blogVo) {
-		return sqlSession.selectOne("blog.title", blogVo);
+	public BlogVo title(String id) {
+		System.out.println("BlogDao>title-->" + id);
+		return sqlSession.selectOne("blog.title", id);
+	}
+	
+	public BlogVo blogIdCheck(String id) {
+		System.out.println("BlogDao>title-->  "+ id);
+		return sqlSession.selectOne("blog.blogIdCheck", id);
+		
 	}
 	
 }

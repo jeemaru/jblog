@@ -12,6 +12,6 @@
  			
  			<c:if test="${sessionScope.authUser != null}">
 				<li><a href="${pageContext.request.contextPath}/user/logout">로그아웃</a></li>
-				<li><a href="${pageContext.request.contextPath}/user/blog-main">내블로그</a></li>
+				<li><a href="${pageContext.request.contextPath}/${bVo.id}">내블로그</a></li>
  			</c:if>
  		</ul>

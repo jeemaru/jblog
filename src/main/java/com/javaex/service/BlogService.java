@@ -12,11 +12,17 @@ public class BlogService {
 	@Autowired
 	private BlogDao blogDao;
 	
-	public int title(BlogVo blogVo) {
+	public BlogVo title(String id) {
+		System.out.println("BlogService>title-->  "+id);
 		
-		return blogDao.title(blogVo);
+		return blogDao.title(id);
 		
 	}
 	
+	public BlogVo blogIdCheck(String id) {
+		System.out.println("BlogService>blogIdCheck-->  "+id);
+		
+		return blogDao.blogIdCheck(id);
+	}
 	
 }
